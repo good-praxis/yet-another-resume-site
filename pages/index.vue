@@ -1,10 +1,16 @@
 <template>
   <v-row justify="center" align="center">
+    <v-col cols="12" md="12">
+        <v-parallax 
+          src="lights-and-buildings-in-berlin-at-night.jpg"
+          height="1000"
+        >
+        <h1 id="herotext">
+            Full width!
+        </h1>
+        </v-parallax>
+    </v-col>
     <v-col cols="12" sm="8" md="6">
-      <div class="text-center">
-        <logo />
-        <vuetify-logo />
-      </div>
       <v-card>
         <v-card-title class="headline">
           Welcome to the Vuetify + Nuxt.js template
@@ -77,13 +83,16 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
 
 export default {
   components: {
-    Logo,
-    VuetifyLogo
+
   }
 }
 </script>
+
+<style>
+ #herotext {
+   background-color: rgba(0, 0, 0, 0.5)
+ }
+</style>
