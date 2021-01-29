@@ -57,7 +57,7 @@
   flex-direction: column;
   text-align: left;
   width: 100%;
-  height: 100vh; /* if you don't want it to take up the full screen, reduce this number */
+  height: 80vh; /* if you don't want it to take up the full screen, reduce this number */
   overflow: hidden;
   background-size: cover !important;
   background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,0.65) 100%), url(/berlin.jpeg) no-repeat center center scroll;
