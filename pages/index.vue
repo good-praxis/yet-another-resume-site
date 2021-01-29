@@ -87,7 +87,8 @@
 export default {
   components: {
 
-  }
+  },
+  layout: 'cv'
 }
 </script>
 
