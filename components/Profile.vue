@@ -1,16 +1,16 @@
 <template>
     <v-card elevation="24">
         <v-card-title class="headline">
-          Versatile Software Developer based in Berlin
+          Versatile Software Devel&shy;oper based in Berlin
         </v-card-title>
         <v-card-text>
           <span v-html="blurb" />
+        </v-card-text>
+        <v-card-actions>
           <div class="text-xs-right signature">
             <em><small>&mdash; <v-avatar size="62"><img src="avatar.jpg" alt="Darian"></v-avatar>
  Darian Reck</small></em>
           </div>
-        </v-card-text>
-        <v-card-actions>
           <v-spacer />
           <v-btn
             color="primary"
@@ -44,8 +44,16 @@
 </script>
 
 <style scoped>
+    .headline {
+      hyphens: manual;
+      word-break: keep-all;
+    }
     .v-icon {
       margin-left: 10px;
       margin-top: -2px
+    }
+
+    .signature {
+      color: rgba(255, 255, 255, .6)
     }
 </style>
