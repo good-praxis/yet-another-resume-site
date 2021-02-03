@@ -6,8 +6,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: "%s - yet-another-resume-site",
-    title: "yet-another-resume-site",
+    titleTemplate: "%s - Darian Reck | Personal Website",
+    title: "Darian Reck | Personal Website",
     htmlAttrs: {
       lang: "en"
     },
