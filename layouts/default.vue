@@ -5,10 +5,7 @@
         <nuxt />
       </v-container>
     </v-main>
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
+    <v-footer :absolute="!fixed" app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
@@ -16,18 +13,18 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       fixed: false,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
+          icon: "mdi-apps",
+          title: "Welcome",
+          to: "/"
+        }
       ],
-      title: 'Vuetify.js'
-    }
+      title: "Vuetify.js"
+    };
   }
-}
+};
 </script>

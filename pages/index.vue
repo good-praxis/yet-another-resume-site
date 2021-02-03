@@ -9,18 +9,18 @@
 </template>
 
 <script>
-import Contact from '~/components/Contact.vue'
-import Profile from "~/components/Profile.vue"
-import WorkHistory from '~/components/WorkHistory.vue'
+import Contact from "~/components/Contact.vue";
+import Profile from "~/components/Profile.vue";
+import WorkHistory from "~/components/WorkHistory.vue";
 
 export default {
   components: { Profile, Contact, WorkHistory },
-  layout: 'cv'
-}
+  layout: "cv"
+};
 </script>
 
 <style>
- #herotext {
-   background-color: rgba(0, 0, 0, 0.5)
- }
+#herotext {
+  background-color: rgba(0, 0, 0, 0.5);
+}
 </style>

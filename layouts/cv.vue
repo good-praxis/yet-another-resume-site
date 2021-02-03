@@ -6,34 +6,31 @@
         <nuxt />
       </v-container>
     </v-main>
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
+    <v-footer :absolute="!fixed" app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
 </template>
 
 <script>
-import Hero from '@/components/Hero.vue';
+import Hero from "@/components/Hero.vue";
 
 export default {
   components: {
     Hero
   },
-  data () {
+  data() {
     return {
       fixed: false,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
+          icon: "mdi-apps",
+          title: "Welcome",
+          to: "/"
+        }
       ],
-      title: 'Vuetify.js'
-    }
+      title: "Vuetify.js"
+    };
   }
-}
+};
 </script>
