@@ -35,7 +35,7 @@
 <script>
 export default {
   props: {
-    employments: {
+    employmentsData: {
       type:
         Array[
           {
@@ -59,6 +59,14 @@ export default {
             }
           }
         ]
+    }
+  },
+  computed: {
+    employments() {
+      if (this.employmentsData) {
+        this.employmentsData.reverse();
+        return this.employmentsData;
+      }
     }
   },
   methods: {

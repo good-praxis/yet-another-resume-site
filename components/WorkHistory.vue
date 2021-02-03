@@ -7,7 +7,7 @@
       <span v-if="mobile">
         <CompanyInfo :company="employer" />
       </span>
-      <Employments :employments="employer.employments" />
+      <Employments :employmentsData="employer.employments" />
     </v-timeline-item>
   </v-timeline>
 </template>
@@ -21,9 +21,8 @@ export default {
   data() {
     return {
       mobile: false,
-      history: [
+      historyData: [
         {
-          expand: false,
           companyName: "Avacon AG",
           employments: [
             {
@@ -49,7 +48,6 @@ export default {
                         \nWith around 2,100 employees and about 190 trainees, the Avacon group of companies is one of the largest employers and trainers in the region. `
         },
         {
-          expand: false,
           companyName: "Factory Works GmbH",
           employments: [
             {
@@ -71,7 +69,6 @@ export default {
           companyBlurb: `Factory Berlin is a membership organisation that offers a variety of products and programs for individuals, startups, and corporates in tech, digital innovation and entrepreneurship. In exchange for a monthly fee, members have access to workspace in two locations in Berlin, 400 social and educational events a year, entrepreneurship and creative mentorship programs, and online and offline networking activities. Factory Berlin creates partnerships with global organisations like Google and McKinsey, giving startups access to resources that help their businesses grow. Factory Berlin also offers event management services.`
         },
         {
-          expand: false,
           companyName: "CODE Education GmbH",
           employments: [
             {
@@ -108,6 +105,12 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    history() {
+      this.historyData.reverse();
+      return this.historyData;
+    }
   },
   created() {
     if (process.client)
