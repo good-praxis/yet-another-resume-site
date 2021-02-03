@@ -11,7 +11,9 @@
         <em
           ><small
             >&mdash;
-            <v-avatar size="62"><img src="avatar.jpg" alt="Darian"/></v-avatar>
+            <v-avatar v-show="loaded" size="62"
+              ><img src="avatar.jpg" alt="Darian"
+            /></v-avatar>
             Darian Reck</small
           ></em
         >
@@ -19,7 +21,7 @@
       <v-spacer />
       <v-btn color="primary" @click="scrollToForm">
         Contact Me
-        <v-icon class="icon">{{ sendIcon }}</v-icon>
+        <v-icon v-show="loaded" class="icon">{{ sendIcon }}</v-icon>
       </v-btn>
     </v-card-actions>
   </v-card>
@@ -31,6 +33,7 @@ import { mdiSend } from "@mdi/js";
 export default {
   data() {
     return {
+      loaded: false,
       sendIcon: mdiSend,
       blurb:
         "<span>I'm an autodidact, immersing myself in the Web Development Space for over 3 years. I've worked with both start-ups and large enterprises. Skilled in <b>Rust</b>, <b>React</b> and <b>Vue</b>. Always interested in new technologies \& frameworks. Worked with a focus on <b>Elixir</b> for 1+ year. Runs <b>Manjaro</b> and <b>MacOS</b>. Experienced in <b>DevOps</b> activities, including <b>Docker</b>, and I've deployed and set up <b>remote root servers</b> and local hardware, as well as <b>vServers</b>, according to the needs of the project or product. Enthusiastic about game making and <b>interactive storytelling</b>. Believes in free software.</span>"
@@ -44,6 +47,9 @@ export default {
         el.scrollIntoView({ behavior: "smooth" });
       }
     }
+  },
+  mounted() {
+    this.loaded = true;
   }
 };
 </script>

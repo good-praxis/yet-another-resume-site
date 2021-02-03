@@ -3,11 +3,11 @@
     <h2 class="headline font-weight-bold">{{ company.companyName }}</h2>
     <p class="text-overline">
       <v-btn v-if="left" depressed plain :href="company.companyProfile">
-        <v-icon>{{ linkedinIcon }}</v-icon>
+        <v-icon v-show="loaded">{{ linkedinIcon }}</v-icon>
       </v-btn>
       {{ company.location }}
       <v-btn v-if="!left" depressed plain :href="company.companyProfile"
-        ><v-icon>{{ linkedinIcon }}</v-icon></v-btn
+        ><v-icon v-show="loaded">{{ linkedinIcon }}</v-icon></v-btn
       >
     </p>
     <v-btn depressed plain @click="expand = !expand"
@@ -25,7 +25,8 @@ export default {
   data() {
     return {
       linkedinIcon: mdiLinkedin,
-      expand: false
+      expand: false,
+      loaded: false
     };
   },
   props: {
@@ -49,6 +50,9 @@ export default {
         required: true
       }
     }
+  },
+  mounted() {
+    this.loaded = true;
   }
 };
 </script>
