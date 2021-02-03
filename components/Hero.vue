@@ -71,7 +71,7 @@ export default {
   overflow: hidden;
   background-size: cover !important;
   background: linear-gradient(
-      to bottom,
+      to top,
       rgba(0, 0, 0, 0) 0%,
       rgba(0, 0, 0, 0) 37%,
       rgba(0, 0, 0, 0.65) 100%
@@ -112,6 +112,7 @@ h1 {
 
   h1 {
     margin-left: 0;
+    margin-top: 40vh;
   }
   span {
     display: block;
