@@ -2,57 +2,11 @@
   <v-timeline :dense="mobile">
     <v-timeline-item v-for="(employer, i) in history" :key="i" small>
       <template v-if="!mobile" v-slot:opposite>
-        <h2 class="headline font-weight-bold">{{ employer.employer }}</h2>
-        <p class="text-overline">
-          <v-btn
-            v-if="i % 2 == 0"
-            depressed
-            plain
-            :href="employer.companyProfile"
-            >{{ mobile }}<v-icon>mdi-linkedin</v-icon></v-btn
-          >
-          {{ employer.location }}
-          <v-btn
-            v-if="mobile || i % 2 != 0"
-            depressed
-            plain
-            :href="employer.companyProfile"
-            ><v-icon>mdi-linkedin</v-icon></v-btn
-          >
-        </p>
-        <v-btn depressed plain @click="employer.expand = !employer.expand"
-          >See {{ employer.expand ? "Less &uarr;" : "More &darr;" }}</v-btn
-        >
-        <v-expand-transition>
-          <p v-show="employer.expand">{{ employer.companyBlurb }}</p>
-        </v-expand-transition>
+        <CompanyInfo :left="i % 2 == 0" :company="employer" />
       </template>
-      <div v-if="mobile">
-        <h2 class="headline font-weight-bold">{{ employer.employer }}</h2>
-        <p class="text-overline">
-          <v-btn
-            v-if="!mobile && i % 2 == 0"
-            depressed
-            plain
-            :href="employer.companyProfile"
-            ><v-icon>mdi-linkedin</v-icon></v-btn
-          >
-          {{ employer.location }}
-          <v-btn
-            v-if="mobile || i % 2 != 0"
-            depressed
-            plain
-            :href="employer.companyProfile"
-            ><v-icon>mdi-linkedin</v-icon></v-btn
-          >
-        </p>
-        <v-btn depressed plain @click="employer.expand = !employer.expand"
-          >See {{ employer.expand ? "Less &uarr;" : "More &darr;" }}</v-btn
-        >
-        <v-expand-transition>
-          <p v-show="employer.expand">{{ employer.companyBlurb }}</p>
-        </v-expand-transition>
-      </div>
+      <span v-if="mobile">
+        <CompanyInfo :company="employer" />
+      </span>
       <div
         v-for="(employment, j) in employer.employments"
         :key="j"
@@ -91,14 +45,17 @@
 </template>
 
 <script>
+import CompanyInfo from "./CompanyInfo.vue";
+
 export default {
+  components: { CompanyInfo },
   data() {
     return {
       mobile: false,
       history: [
         {
           expand: false,
-          employer: "Avacon AG",
+          companyName: "Avacon AG",
           employments: [
             {
               startDate: new Date(2016, 4),
@@ -119,12 +76,12 @@ export default {
           ],
           location: "Salzgitter, Germany",
           companyProfile: "https://www.linkedin.com/company/avaconag/",
-          companyBlurb: `As one of the largest regional energy service providers in Germany, Avacon brings energy exactly where millions of people need it. Fast, reliable, efficient and environmentally friendly. They are your partner for regional energy solutions in the areas of electricity, gas, water, heating, cooling, telecommunications, mobility and lighting. Through their intelligent energy networks, they connect people from the North Sea coast to southern Hesse, in Lower Saxony and Saxony-Anhalt. 
+          companyBlurb: `As one of the largest regional energy service providers in Germany, Avacon brings energy exactly where millions of people need it. Fast, reliable, efficient and environmentally friendly. They are your partner for regional energy solutions in the areas of electricity, gas, water, heating, cooling, telecommunications, mobility and lighting. Through their intelligent energy networks, they connect people from the North Sea coast to southern Hesse, in Lower Saxony and Saxony-Anhalt.
                         \nWith around 2,100 employees and about 190 trainees, the Avacon group of companies is one of the largest employers and trainers in the region. `
         },
         {
           expand: false,
-          employer: "Factory Works GmbH",
+          companyName: "Factory Works GmbH",
           employments: [
             {
               startDate: new Date(2018, 1),
@@ -146,7 +103,7 @@ export default {
         },
         {
           expand: false,
-          employer: "CODE Education GmbH",
+          companyName: "CODE Education GmbH",
           employments: [
             {
               startDate: new Date(2018, 5),
