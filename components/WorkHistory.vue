@@ -7,48 +7,17 @@
       <span v-if="mobile">
         <CompanyInfo :company="employer" />
       </span>
-      <div
-        v-for="(employment, j) in employer.employments"
-        :key="j"
-        class="py-4"
-      >
-        <h2 class="headline font-weight-light mb-4">
-          {{ employment.jobTitle }}
-          <v-tooltip right v-if="employment.attachment">
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                v-on="on"
-                v-bind="attrs"
-                :href="employment.attachment.link"
-                target="_blank"
-                depressed
-                plain
-              >
-                <v-icon>mdi-download</v-icon>
-              </v-btn>
-            </template>
-            <span>{{ employment.attachment.title }}</span>
-          </v-tooltip>
-        </h2>
-        <p class="text-subtitle-2">
-          {{ formatDate(employment.startDate) }} -
-          {{ formatDate(employment.endDate) }}
-        </p>
-        <ul>
-          <li v-for="(task, k) in employment.taskBlurbs" :key="k">
-            {{ task }}
-          </li>
-        </ul>
-      </div>
+      <Employments :employments="employer.employments" />
     </v-timeline-item>
   </v-timeline>
 </template>
 
 <script>
-import CompanyInfo from "./CompanyInfo.vue";
+import CompanyInfo from "@/components/CompanyInfo.vue";
+import Employments from "@/components/Employments.vue";
 
 export default {
-  components: { CompanyInfo },
+  components: { CompanyInfo, Employments },
   data() {
     return {
       mobile: false,
@@ -139,15 +108,6 @@ export default {
         }
       ]
     };
-  },
-  methods: {
-    formatDate(date) {
-      let formatter = new Intl.DateTimeFormat("en-US", {
-        month: "long",
-        year: "numeric"
-      });
-      return formatter.format(date);
-    }
   },
   created() {
     if (process.client)
