@@ -113,7 +113,7 @@ export default {
         send("service_mwrzr8p", "template_vdmdg6f", {
           reply_to: this.email,
           message: this.message,
-          from_name: this.from_name
+          from_name: this.name
         }).then(
           result => {
             this.snackbar = true;
