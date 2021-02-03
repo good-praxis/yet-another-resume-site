@@ -7,7 +7,18 @@
       </v-container>
     </v-main>
     <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <v-spacer />
+      <span>
+        &copy; {{ new Date().getFullYear() }} Darian Reck - Made with ❤️ + ☕ +
+        Vue - Look at the
+        <v-btn
+          depressed
+          plain
+          id="github-btn"
+          href="https://github.com/good-praxis/yet-another-resume-site"
+          >Source Code</v-btn
+        >
+      </span>
     </v-footer>
   </v-app>
 </template>
@@ -34,3 +45,10 @@ export default {
   }
 };
 </script>
+
+<style>
+#github-btn {
+  padding-left: 0;
+  padding-right: 4px;
+}
+</style>
