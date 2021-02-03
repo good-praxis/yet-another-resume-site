@@ -22,7 +22,7 @@ export default {
     return {
       terms: [
         "Software Engineer",
-        "Contributer",
+        "Contributor",
         "Web Developer",
         "Programmer",
         "Technomancer",
