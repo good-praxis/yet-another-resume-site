@@ -11,6 +11,7 @@
   "dependencies": {
     "@nuxt/content": "^1.11.1",
     "core-js": "^3.8.2",
+    "emailjs-com": "^2.6.4",
     "nuxt": "^2.14.12"
   },
   "devDependencies": {
