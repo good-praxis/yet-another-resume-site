@@ -2,9 +2,9 @@
   <div class="company-info">
     <h2 class="headline font-weight-bold">{{ company.companyName }}</h2>
     <p class="text-overline">
-      <v-btn v-if="left" depressed plain :href="company.companyProfile"
-        >{{ mobile }}<v-icon>mdi-linkedin</v-icon></v-btn
-      >
+      <v-btn v-if="left" depressed plain :href="company.companyProfile">
+        <v-icon>mdi-linkedin</v-icon>
+      </v-btn>
       {{ company.location }}
       <v-btn v-if="!left" depressed plain :href="company.companyProfile"
         ><v-icon>mdi-linkedin</v-icon></v-btn
