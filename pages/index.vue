@@ -15,12 +15,25 @@ import WorkHistory from "~/components/WorkHistory.vue";
 
 export default {
   components: { Profile, Contact, WorkHistory },
-  layout: "cv"
+  layout: "cv",
 };
 </script>
 
 <style>
 #herotext {
   background-color: rgba(0, 0, 0, 0.5);
+}
+html {
+  background-color: rgb(0, 0, 0);
+  animation: fadein 2s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 </style>
