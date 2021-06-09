@@ -19,9 +19,12 @@
           <span>{{ employment.attachment.title }}</span>
         </v-tooltip>
       </h2>
-      <p class="text-subtitle-2">
+      <p v-if="!employment.current" class="text-subtitle-2">
         {{ formatDate(employment.startDate) }} -
         {{ formatDate(employment.endDate) }}
+      </p>
+      <p v-else class="text-subtitle-2">
+        since {{ formatDate(employment.startDate) }}
       </p>
       <ul>
         <li v-for="(task, j) in employment.taskBlurbs" :key="j">
@@ -42,6 +45,10 @@ export default {
             jobTitle: {
               type: String,
               default: "Code Monkey"
+            },
+            current: {
+              type: Boolean,
+              default: false,
             },
             startDate: {
               type: Date

@@ -102,6 +102,22 @@ export default {
           location: "Berlin, Germany",
           companyProfile: "https://www.linkedin.com/school/codeuniversity/",
           companyBlurb: `CODE Education GmbH is the legal company behind the CODE University of Applied Science. CODE University of Applied Sciences is a private, state-recognized University of Applied Sciences for digital product development in Berlin.`
+        },
+        {
+          companyName: "Freelance & Tech Volunteering",
+          employments: [
+            {
+              startDate: new Date(2020, 2),
+              current: true,
+              jobTitle: "Tech Worker",
+              taskBlurbs: [
+                "Due to the pandemic I started to tech volunteering for NGOs within my network, as well as general freelancing",
+                "From server setup, through developing UI components, to writing usability userscripts.",
+                "Some of the technologies I used during this time are Ansible, Nginx, Nuxt, Drupal, MutationObserver API, Emotion, Vuex, Ramda."
+              ]
+            }
+          ],
+          location: "Berlin, Germany",
         }
       ]
     };

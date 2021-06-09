@@ -2,15 +2,25 @@
   <div class="company-info">
     <h2 class="headline font-weight-bold">{{ company.companyName }}</h2>
     <p class="text-overline">
-      <v-btn v-if="left" depressed plain :href="company.companyProfile">
+      <v-btn
+        v-if="left && company.companyProfile"
+        depressed
+        plain
+        :href="company.companyProfile"
+      >
         <v-icon v-show="loaded">{{ linkedinIcon }}</v-icon>
       </v-btn>
       {{ company.location }}
-      <v-btn v-if="!left" depressed plain :href="company.companyProfile"
-        ><v-icon v-show="loaded">{{ linkedinIcon }}</v-icon></v-btn
+      <v-btn
+        v-if="!left && company.companyProfile"
+        depressed
+        plain
+        :href="company.companyProfile"
       >
+        <v-icon v-show="loaded">{{ linkedinIcon }}</v-icon>
+      </v-btn>
     </p>
-    <v-btn depressed plain @click="expand = !expand"
+    <v-btn v-if="company.companyBlurb" depressed plain @click="expand = !expand"
       >See {{ expand ? "Less &uarr;" : "More &darr;" }}</v-btn
     >
     <v-expand-transition>
@@ -26,34 +36,34 @@ export default {
     return {
       linkedinIcon: mdiLinkedin,
       expand: false,
-      loaded: false
+      loaded: false,
     };
   },
   props: {
     left: {
-      type: Boolean
+      type: Boolean,
     },
     company: {
       companyName: {
         type: String,
-        required: true
+        required: true,
       },
       location: {
         type: String,
-        required: true
+        required: true,
       },
       companyProfile: {
-        type: String
+        type: String,
       },
       companyBlurb: {
         type: String,
-        required: true
-      }
-    }
+        required: true,
+      },
+    },
   },
   mounted() {
     this.loaded = true;
-  }
+  },
 };
 </script>
 
